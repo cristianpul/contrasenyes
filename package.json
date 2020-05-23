@@ -1,15 +1,20 @@
 {
-  "name": "apicontrasenyes",
+  "name": "api-contrasenyes",
   "version": "1.0.0",
-  "description": "API Contrasenyes",
+  "description": "API per generar contrasenyes amb exemple d'interfície gràfica per obtenir-ne (vue js)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Cristian Pul",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

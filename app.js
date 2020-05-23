@@ -2,22 +2,22 @@
 
 // Carregar mòduls de Node.js
 var express = require("express");
-//var bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
 
 // Executar Express (http)
 var app = express();
 
 // Carregar fitxer de rutes
-//var article_routes = require("./routes/article");
+var pass_rutes = require("./routes/pass_rutes");
 
 // Carregar middlewares
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
-
-// Activar el CORS
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Afegir prefixes a rutes i carregar rutes
-//app.use("/api", article_routes);
+app.use("/api", pass_rutes);
+
+// Activar el CORS
 
 // Exportar mòdul (arxiu actual)
 module.exports = app;
