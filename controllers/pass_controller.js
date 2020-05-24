@@ -1,8 +1,14 @@
-"use strict";
+/**
+ * Controlador amb els retorns que es realizarà en cridar una ruta
+ */
 
 const validator = require("validator");
-const caracters = require("../classes/caracters");
-var cars = new caracters();
+const contrasenyes = require("../classes/contrasenyes");
+
+// Creació d'instància de contrasenyes
+var contrasenya = new contrasenyes();
+
+// Controlador
 var controller = {
   base: (req, res) => {
     res.send("API funcionant correctament.");
@@ -10,8 +16,15 @@ var controller = {
   contrasenya: (req, res) => {
     return res.status(200).send({
       status: "success",
-      contrasenya: "hola",
-      missatge: cars.prova(),
+      contrasenya: contrasenya.getContrasenya(),
+    });
+  },
+  contrasenya2: (req, res) => {
+    var llargada = req.params.llargada;
+    console.log(llargada);
+    return res.status(200).send({
+      status: "success",
+      contrasenya: contrasenya.getContrasenya2(llargada),
     });
   },
 };

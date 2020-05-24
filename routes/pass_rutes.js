@@ -1,12 +1,16 @@
-"use strict";
+/**
+ * Recull de rutes que fa servir l'API
+ */
 
 var express = require("express");
 var passController = require("../controllers/pass_controller");
 
 var router = express.Router();
 
+// Rutes
 router.get("/", passController.base);
 router.get("/contrasenya", passController.contrasenya);
+router.post("/contrasenya2:llargada", passController.contrasenya2);
 
 module.exports = router;
 

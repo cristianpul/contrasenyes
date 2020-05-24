@@ -1,4 +1,6 @@
-"use strict";
+/**
+ * app.js
+ */
 
 // Carregar mòduls de Node.js
 var express = require("express");

@@ -1,5 +1,6 @@
-"use strict";
-
+/**
+ * index.js
+ */
 var app = require("./app");
 var port = 3001;
 
