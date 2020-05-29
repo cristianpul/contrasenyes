@@ -13,16 +13,30 @@ class Caracters {
   caractersEspecialsConjunt = {
     1: { inici: 36, fi: 47 },
     2: { inici: 58, fi: 64 },
-    3: { inici: 91, fi: 98 },
+    3: { inici: 91, fi: 96 },
     4: { inici: 123, fi: 126 },
   };
+  caractersSimilarsConjunt = ["l", "|", "1", "/", "\\", "o", "O", "0"];
 
   caractersAscii(conjunt, eliminaCaractersSimilars) {
     var arrayCaracters = [];
 
     for (let j in conjunt) {
       for (let i = conjunt[j].inici; i <= conjunt[j].fi; i++) {
-        arrayCaracters.push(String.fromCharCode(i));
+        if (eliminaCaractersSimilars) {
+          var similar = false;
+          var caracterTemporal = String.fromCharCode(i);
+          for (let k = 0; k < this.caractersSimilarsConjunt.length; k++) {
+            if (caracterTemporal === this.caractersSimilarsConjunt[k]) {
+              similar = true;
+            }
+          }
+          if (!similar) {
+            arrayCaracters.push(caracterTemporal);
+          }
+        } else {
+          arrayCaracters.push(String.fromCharCode(i));
+        }
       }
     }
     return arrayCaracters;

@@ -20,10 +20,16 @@ var controller = {
     });
   },
   contrasenya2: (req, res) => {
-    var llargada = req.params.llargada;
-    console.log(llargada);
+    var llargada;
+    console.log(req.params.llargada);
+    if (req.params.llargada == undefined || !req.params.llargada) {
+      llargada = 10;
+    } else {
+      llargada = req.params.llargada;
+    }
     return res.status(200).send({
       status: "success",
+      llargada: llargada,
       contrasenya: contrasenya.getContrasenya2(llargada),
     });
   },
