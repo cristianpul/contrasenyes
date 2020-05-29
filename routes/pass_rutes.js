@@ -9,8 +9,7 @@ var router = express.Router();
 
 // Rutes
 router.get("/", passController.base);
-router.get("/contrasenya", passController.contrasenya);
-router.get("/contrasenya2/:llargada?", passController.contrasenya2);
+router.get("/contrasenya/:llargada?", passController.contrasenya);
 
 module.exports = router;
 
