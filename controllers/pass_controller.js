@@ -19,7 +19,34 @@ var controller = {
     // Si els parametres són undefined prendran el valor *_PER_DEFECTE
     var llargada = req.params.llargada || LLARGADA_PER_DEFECTE;
     var parametresEnCru = req.params.parametres || PARAMETRES_PER_DEFECTE;
-    var parametres = parametresEnCru.split(";", 5);
+    var parametresEnviats = parametresEnCru.split(";", 5);
+    var parametresCorrectes = false;
+
+    // Comprovem que, com a mínim, hi hagi un paràmetre correcte
+    for (var element in parametresEnviats) {
+      if (
+        parametresEnviats[element] == "tots" ||
+        parametresEnviats[element] == "minuscules" ||
+        parametresEnviats[element] == "majuscules" ||
+        parametresEnviats[element] == "numeros" ||
+        parametresEnviats[element] == "caractersEspecials" ||
+        parametresEnviats[element] == "evitaSimilars"
+      ) {
+        parametresCorrectes = true;
+      } else {
+        parametresEnviats[element] += " <= INCORRECTE !!!";
+      }
+    }
+
+    // Si NO hi ha cap paràmetre correcte retornem un error
+    if (parametresCorrectes) {
+      parametres = parametresEnviats;
+    } else {
+      return res.status(400).send({
+        status: "error",
+        missatge: "Els paràmetres introduïts NO són correctes",
+      });
+    }
     // Si la llargada no és un número o aquest no es troba entre 1 i 2048
     // es retornarà un missatge d'error
     if (
@@ -37,8 +64,8 @@ var controller = {
     // Si la llargada és numèrica es retornarà la contrasenya
     return res.status(200).send({
       status: "success",
-      params: parametres,
       llargada: llargada,
+      parametres: parametres,
       contrasenya: contrasenya.getContrasenya(llargada, parametres),
     });
   },

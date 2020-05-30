@@ -16,7 +16,20 @@ class Caracters {
     3: { inici: 91, fi: 96 },
     4: { inici: 123, fi: 126 },
   };
-  caractersSimilarsConjunt = ["l", "|", "1", "/", "\\", "o", "O", "0"];
+  caractersSimilarsConjunt = [
+    "l",
+    "|",
+    "1",
+    "I",
+    "/",
+    "\\",
+    "o",
+    "O",
+    "0",
+    "`",
+    "´",
+    "'",
+  ];
 
   caractersAscii(conjunt, eliminaCaractersSimilars) {
     var arrayCaracters = [];
@@ -35,7 +48,11 @@ class Caracters {
             arrayCaracters.push(caracterTemporal);
           }
         } else {
-          arrayCaracters.push(String.fromCharCode(i));
+          if (String.fromCharCode(i) == "\\") {
+            arrayCaracters.push("@");
+          } else {
+            arrayCaracters.push(String.fromCharCode(i));
+          }
         }
       }
     }
@@ -47,7 +64,6 @@ class Caracters {
       this.minusculesConjunt,
       eliminaCaractersSimilars
     );
-
     return minusculesArray;
   }
 
@@ -56,7 +72,6 @@ class Caracters {
       this.majusculesConjunt,
       eliminaCaractersSimilars
     );
-
     return majusculesArray;
   }
 
@@ -65,7 +80,6 @@ class Caracters {
       this.numerosConjunt,
       eliminaCaractersSimilars
     );
-
     return numerosArray;
   }
 
