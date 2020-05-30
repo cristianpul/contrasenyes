@@ -18,7 +18,7 @@ Els paràmetres disponibles per a aquesta API modifiquen el conjunt de caràcter
 2. **majuscules:** afegeix caràcters A-Z.
 3. **numeros:** afegeix caràcters 0-9.
 4. **caractersEspecials:** afegeix caràcters especials.
-5. **evitaSimilars:** elimina caràcters que poden provocar confusions de lectura.
+5. **evitaSimilars:** elimina caràcters que poden provocar confusions de lectura. Com a exemple, es consideren caràcters similars 1, l, I, |, o, O, 0.
 6. **tots:** substitueix la utilització de tots els paràmetres anteriors.
 
 ---
@@ -37,7 +37,7 @@ API funcionant correctament.
 
 Una vegada verificat el correcte funcionament de l'API, es poden realitzar peticions a l'API de tres formes:
 
-### Petició simple sense llargada ni paràmetres_
+### Petició simple sense llargada ni paràmetres
 Aquesta petició retornarà una contrasenya de 10 caràcters composada per minúscules, majúscules, números i caràcters especials.
 ```
 http://127.0.0.1:3001/api/contrasenya/
@@ -58,22 +58,64 @@ Retorn:
 ### Petició especificant llargada
 Aquesta petició retornarà una contrasenya del número de caràcters indicat per {llargada} composada per minúscules, majúscules, números i caràcters especials.
 
-```http://127.0.0.1:3001/api/contrasenya/**{llargada}**```
+```
+http://127.0.0.1:3001/api/contrasenya/{llargada}
+```
 
 Exemple de petició:
-```http://127.0.0.1:3001/api/contrasenya/12```
+```
+http://127.0.0.1:3001/api/contrasenya/12
+```
 
 Retorn:
-```{ "status": "success", "llargada": "12", "parametres": [ "tots" ], "contrasenya": "PUnR*A]$)zf." }```
+```
+{
+    "status": "success", 
+    "llargada": "12", 
+    "parametres": [ 
+        "tots" 
+    ], "contrasenya": "PUnR*A]$)zf." 
+}
+```
 
 ### Petició especificant llargada i paràmetres
 Aquesta petició retornarà una contrasenya del número de caràcters indicat per `{llargada}` composada segons els paràmetres indicats a `{parametres}`. Els paràmetres han d'estar separats per punt i coma (;) i només es tindran en compte els 5 primers paràmetres introduïts.
-```http://127.0.0.1:3001/api/contrasenya/**{llargada}**/p=**{parametres}**```
+```
+http://127.0.0.1:3001/api/contrasenya/{llargada}/p={parametres}
+```
 
 Exemple de petició:
-```http://127.0.0.1:3001/api/contrasenya/16/p=minuscules;majuscules;evitaSimilars```
+```
+http://127.0.0.1:3001/api/contrasenya/16/p=minuscules;majuscules;evitaSimilars
+```
 
 Retorn:
-```{ "status": "success", "llargada": "16", "parametres": [ "minuscules", "majuscules", "evitaSimilars" ], "contrasenya": "hAfYweyVeFmJNfuB" }```
+```
+{
+    "status": "success", 
+    "llargada": "16", 
+    "parametres": [
+        "minuscules", 
+        "majuscules", 
+        "evitaSimilars"
+    ], 
+    "contrasenya": "hAfYweyVeFmJNfuB"
+}
+```
 
+## Desenvolupament
+Per desenvolupar aquesta API s'ha utilitzat:
+* [Node js](enllaç) - Descripció
+* Express
+* Validator
+* Body-parser
+
+## Autor
+* **Cristian Pulido** - [cristianpul](https://github.com/cristianpul?tab=repositories)
+
+## Llicència
+El contingut d'aquest repositori està subjecte a la llicència [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+
+## Agraïments
+El noi del vídeo on he agafat la idea
 
