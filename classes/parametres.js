@@ -23,14 +23,10 @@ class Parametres {
       evitaSimilars = arrayParametres[valor] == "evitaSimilars" ? true : false;
     }
     if (arrayParametres[0] == "tots") {
-      taulaCaracters = caracter.minuscules(evitaSimilars);
-      taulaCaracters = taulaCaracters.concat(
-        caracter.majuscules(evitaSimilars)
-      );
-      taulaCaracters = taulaCaracters.concat(caracter.numeros(evitaSimilars));
-      taulaCaracters = taulaCaracters.concat(
-        caracter.caractersEspecials(evitaSimilars)
-      );
+      taulaCaracters = caracter.minuscules(true);
+      taulaCaracters = taulaCaracters.concat(caracter.majuscules(true));
+      taulaCaracters = taulaCaracters.concat(caracter.numeros(true));
+      taulaCaracters = taulaCaracters.concat(caracter.caractersEspecials(true));
     } else {
       for (let i = 0; i <= arrayParametres.length; i++) {
         switch (arrayParametres[i]) {
