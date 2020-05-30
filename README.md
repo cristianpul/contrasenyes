@@ -1,4 +1,4 @@
-## CONTRASENYES
+# CONTRASENYES
 
 Aquesta API permet **generar contrasenyes**, segons la llargada indicada i el paràmetres assignats.
 
@@ -12,35 +12,68 @@ La llargada de la contrasenya serà, per defecte, de **10 caràcters**. No obsta
 
 ## Paràmetres
 
-Els paràmetres disponibles per a aquesta API modifiquen el conjunt de caràcters per generar les contrasenyes:
+Els paràmetres disponibles per a aquesta API modifiquen el conjunt de caràcters utilitzat per generar les contrasenyes:
 
 1. **minuscules:** afegeix caràcters a-z.
 2. **majuscules:** afegeix caràcters A-Z.
 3. **numeros:** afegeix caràcters 0-9.
 4. **caractersEspecials:** afegeix caràcters especials.
 5. **evitaSimilars:** elimina caràcters que poden provocar confusions de lectura.
-6. **tots:** substitueix l'utilització de tots els paràmetres anteriors.
+6. **tots:** substitueix la utilització de tots els paràmetres anteriors.
 
 ---
 
 ## Com realitzar peticions
 
-Es poden realitzar peticions a l'API de tres formes:
+Abans de realitzar peticions de contrasenyes, es pot comprovar l'estat de l'API a través de la petició:
+```
+http://127.0.0.1:3001/api/
+```
 
-`http://127.0.0.1:3001/api/contrasenya/` Aquesta petició retornarà una contrasenya de 10 caràcters composada per minúscules, majúscules, números i caràcters especials.
+El retorn ha de ser:
+```
+API funcionant correctament.
+```
 
-Exemple de petició: `http://127.0.0.1:3001/api/contrasenya/`
+Una vegada verificat el correcte funcionament de l'API, es poden realitzar peticions a l'API de tres formes:
+
+### Petició simple sense llargada ni paràmetres_
+Aquesta petició retornarà una contrasenya de 10 caràcters composada per minúscules, majúscules, números i caràcters especials.
+```
+http://127.0.0.1:3001/api/contrasenya/
+``` 
+
 Retorn:
-`{ "status": "success", "llargada": "10", "parametres": [ "tots" ], "contrasenya": "c46Gj$,8tY" }`
+```
+{
+    "status": "success",
+    "llargada": "10",
+    "parametres": [
+        "tots"
+    ],
+    "contrasenya": "*@irKu9_=i"
+}
+```
 
-`http://127.0.0.1:3001/api/contrasenya/**{llargada}**` Aquesta petició retornarà una contrasenya del número de caràcters indicat per {llargada} composada per minúscules, majúscules, números i caràcters especials.
+### Petició especificant llargada
+Aquesta petició retornarà una contrasenya del número de caràcters indicat per {llargada} composada per minúscules, majúscules, números i caràcters especials.
 
-Exemple de petició: `http://127.0.0.1:3001/api/contrasenya/12`
+```http://127.0.0.1:3001/api/contrasenya/**{llargada}**```
+
+Exemple de petició:
+```http://127.0.0.1:3001/api/contrasenya/12```
+
 Retorn:
-`{ "status": "success", "llargada": "12", "parametres": [ "tots" ], "contrasenya": "PUnR*A]$)zf." }`
+```{ "status": "success", "llargada": "12", "parametres": [ "tots" ], "contrasenya": "PUnR*A]$)zf." }```
 
-`http://127.0.0.1:3001/api/contrasenya/**{llargada}**/p=**{parametres}**` Aquesta petició retornarà una contrasenya del número de caràcters indicat per `{llargada}` composada segons els paràmetres indicats a `{parametres}`. Els paràmetres han d'estar separats per punt i coma (;) i només es tindran en compte els 5 primers paràmetres introduïts.
+### Petició especificant llargada i paràmetres
+Aquesta petició retornarà una contrasenya del número de caràcters indicat per `{llargada}` composada segons els paràmetres indicats a `{parametres}`. Els paràmetres han d'estar separats per punt i coma (;) i només es tindran en compte els 5 primers paràmetres introduïts.
+```http://127.0.0.1:3001/api/contrasenya/**{llargada}**/p=**{parametres}**```
 
-Exemple de petició: `http://127.0.0.1:3001/api/contrasenya/16/p=minuscules;majuscules;evitaSimilars`
+Exemple de petició:
+```http://127.0.0.1:3001/api/contrasenya/16/p=minuscules;majuscules;evitaSimilars```
+
 Retorn:
-`{ "status": "success", "llargada": "16", "parametres": [ "minuscules", "majuscules", "evitaSimilars" ], "contrasenya": "hAfYweyVeFmJNfuB" }`
+```{ "status": "success", "llargada": "16", "parametres": [ "minuscules", "majuscules", "evitaSimilars" ], "contrasenya": "hAfYweyVeFmJNfuB" }```
+
+
