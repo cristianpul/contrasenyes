@@ -1,45 +1,46 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+## CONTRASENYES
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
-
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+Aquesta API permet **generar contrasenyes**, segons la llargada indicada i el paràmetres assignats.
 
 ---
 
-## Edit a file
+## Llargada
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
-
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+La llargada de la contrasenya serà, per defecte, de **10 caràcters**. No obstant, es pot triar el número de caràcters que composaran la contrasenya entre els valors numèrics **1 i 2048**.
 
 ---
 
-## Create a file
+## Paràmetres
 
-Next, you’ll add a new file to this repository.
+Els paràmetres disponibles per a aquesta API modifiquen el conjunt de caràcters per generar les contrasenyes:
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+1. **minuscules:** afegeix caràcters a-z.
+2. **majuscules:** afegeix caràcters A-Z.
+3. **numeros:** afegeix caràcters 0-9.
+4. **caractersEspecials:** afegeix caràcters especials.
+5. **evitaSimilars:** elimina caràcters que poden provocar confusions de lectura.
+6. **tots:** substitueix l'utilització de tots els paràmetres anteriors.
 
 ---
 
-## Clone a repository
+## Com realitzar peticions
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+Es poden realitzar peticions a l'API de tres formes:
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+`http://127.0.0.1:3001/api/contrasenya/` Aquesta petició retornarà una contrasenya de 10 caràcters composada per minúscules, majúscules, números i caràcters especials.
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+Exemple de petició: `http://127.0.0.1:3001/api/contrasenya/`
+Retorn:
+`{ "status": "success", "llargada": "10", "parametres": [ "tots" ], "contrasenya": "c46Gj$,8tY" }`
+
+`http://127.0.0.1:3001/api/contrasenya/**{llargada}**` Aquesta petició retornarà una contrasenya del número de caràcters indicat per {llargada} composada per minúscules, majúscules, números i caràcters especials.
+
+Exemple de petició: `http://127.0.0.1:3001/api/contrasenya/12`
+Retorn:
+`{ "status": "success", "llargada": "12", "parametres": [ "tots" ], "contrasenya": "PUnR*A]$)zf." }`
+
+`http://127.0.0.1:3001/api/contrasenya/**{llargada}**/p=**{parametres}**` Aquesta petició retornarà una contrasenya del número de caràcters indicat per `{llargada}` composada segons els paràmetres indicats a `{parametres}`. Els paràmetres han d'estar separats per punt i coma (;) i només es tindran en compte els 5 primers paràmetres introduïts.
+
+Exemple de petició: `http://127.0.0.1:3001/api/contrasenya/16/p=minuscules;majuscules;evitaSimilars`
+Retorn:
+`{ "status": "success", "llargada": "16", "parametres": [ "minuscules", "majuscules", "evitaSimilars" ], "contrasenya": "hAfYweyVeFmJNfuB" }`
