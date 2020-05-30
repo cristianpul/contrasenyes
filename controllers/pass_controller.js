@@ -4,7 +4,8 @@
 
 const validator = require("validator");
 const contrasenyes = require("../classes/contrasenyes");
-const llargadaPerDefecte = "10";
+const LLARGADA_PER_DEFECTE = "10";
+const PARAMETRES_PER_DEFECTE = "tots";
 
 // Creació d'instància de contrasenyes
 var contrasenya = new contrasenyes();
@@ -15,22 +16,12 @@ var controller = {
     res.send("API funcionant correctament.");
   },
   contrasenya: (req, res) => {
-    // Si req.params.llargada és undefined prendrà el valor següent a ||
-    // Aquesta és una forma de realitzar sobrecàrrega de funcions a
-    // javascript, on NO existeix la sobrecàrrega
-    var llargada = req.params.llargada || llargadaPerDefecte;
-
-    /* La línia anterior substitueix a tot això
-
-    var llargada;
-    if (req.params.llargada == undefined || !req.params.llargada) {
-      llargada = 10;
-    } else {
-      llargada = req.params.llargada;
-    } */
-
+    // Si els parametres són undefined prendran el valor *_PER_DEFECTE
+    var llargada = req.params.llargada || LLARGADA_PER_DEFECTE;
+    var parametresEnCru = req.params.parametres || PARAMETRES_PER_DEFECTE;
+    var parametres = parametresEnCru.split(";", 5);
     // Si la llargada no és un número o aquest no es troba entre 1 i 2048
-    // es mostrarà un missatge d'error
+    // es retornarà un missatge d'error
     if (
       !validator.isNumeric(llargada, { no_symbols: true }) ||
       llargada < 1 ||
@@ -46,8 +37,9 @@ var controller = {
     // Si la llargada és numèrica es retornarà la contrasenya
     return res.status(200).send({
       status: "success",
+      params: parametres,
       llargada: llargada,
-      contrasenya: contrasenya.getContrasenya(llargada),
+      contrasenya: contrasenya.getContrasenya(llargada, parametres),
     });
   },
 };

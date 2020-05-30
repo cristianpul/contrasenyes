@@ -6,7 +6,7 @@ const caracters = require("./caracters");
 var caracter = new caracters();
 
 class Contrasenyes {
-  getContrasenya(llargada) {
+  getContrasenya(llargada, parametres) {
     // Desem tots els caràcters disponibles a un array
     var taulaCaracters = caracter.minuscules(true);
     taulaCaracters = taulaCaracters.concat(caracter.majuscules(true));
@@ -15,7 +15,7 @@ class Contrasenyes {
 
     // Creem la variable per guardar la contrasenya
     var caractersContrasenya = "";
-
+    console.log(parametres);
     // Composem la contrasenya
     for (let i = 1; i <= llargada; i++) {
       caractersContrasenya +=
