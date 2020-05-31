@@ -1,16 +1,16 @@
-# CONTRASENYES
+# Contrasenyador
 
 Aquesta API permet **generar contrasenyes**, segons la llargada indicada i el paràmetres assignats.
 
 ---
 
-## Llargada
+## Llargada de la contrasenya
 
 La llargada de la contrasenya serà, per defecte, de **10 caràcters**. No obstant, es pot triar el número de caràcters que composaran la contrasenya entre els valors numèrics **1 i 2048**.
 
 ---
 
-## Paràmetres
+## Paràmetres disponibles
 
 Els paràmetres disponibles per a aquesta API modifiquen el conjunt de caràcters utilitzat per generar les contrasenyes:
 
@@ -18,7 +18,7 @@ Els paràmetres disponibles per a aquesta API modifiquen el conjunt de caràcter
 2. **majuscules:** afegeix caràcters A-Z.
 3. **numeros:** afegeix caràcters 0-9.
 4. **caractersEspecials:** afegeix caràcters especials.
-5. **evitaSimilars:** elimina caràcters que poden provocar confusions de lectura. Com a exemple, es consideren caràcters similars 1, l, I, |, o, O, 0.
+5. **evitaSimilars:** elimina caràcters que poden provocar confusions de lectura. Com a exemple, es consideren caràcters similars ```1, l, I, |, o, O, 0```.
 6. **tots:** substitueix la utilització de tots els paràmetres anteriors.
 
 ---
@@ -105,17 +105,17 @@ Retorn:
 
 ## Desenvolupament
 Per desenvolupar aquesta API s'ha utilitzat:
-* [Node js](enllaç) - Descripció
-* Express
-* Validator
-* Body-parser
+* [Node.js®](https://nodejs.org/ca/) - Entorn d'execució per a JavaScript
+* [Express](https://expressjs.com) - Infrastructura d'aplicacions web amb utilitats HTTP i middleware
+* [Validator](https://www.npmjs.com/package/validator) - Llibreria de validació d'strings
+* [Body-parser](https://www.npmjs.com/package/body-parser) - Parser de sol·licitud d'entrades via middleware
 
 ## Autor
 * **Cristian Pulido** - [cristianpul](https://github.com/cristianpul?tab=repositories)
 
 ## Llicència
-El contingut d'aquest repositori està subjecte a la llicència [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+El contingut d'aquest repositori es pot utilitzar lliurament. Llicència [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/).
 
 ## Agraïments
-El noi del vídeo on he agafat la idea
+La idea de creació de conjunts de caràcters per a realitzar aquest projecte està basada en la que es troba al canal [Web Dev Simplified](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw), concretament al vídeo [Build A Password Generator With JavaScript - Tutorial](https://youtu.be/iKo9pDKKHnc). Gràcies [Web Dev Simplified](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) per les teves aportacions!
 
