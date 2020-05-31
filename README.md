@@ -115,7 +115,7 @@ Per desenvolupar aquesta API s'ha utilitzat:
 * **Cristian Pulido** - [cristianpul](https://github.com/cristianpul?tab=repositories)
 
 ## Llicència
-El contingut d'aquest repositori es pot utilitzar lliurament. Llicència [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+El contingut d'aquest repositori es pot utilitzar lliurament. Llicència [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ca).
 
 ## Agraïments
 La idea de creació de conjunts de caràcters per a realitzar aquest projecte està basada en la que es troba al canal [Web Dev Simplified](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw), concretament al vídeo [Build A Password Generator With JavaScript - Tutorial](https://youtu.be/iKo9pDKKHnc). Gràcies [Web Dev Simplified](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) per les teves aportacions!
