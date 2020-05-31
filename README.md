@@ -106,7 +106,7 @@ Retorn:
 ## Desenvolupament
 Per desenvolupar aquesta API s'ha utilitzat:
 
-* **[Node.js®]**(https://nodejs.org/ca/) - Entorn d'execució per a JavaScript
+* [Node.js®](https://nodejs.org/ca/) - Entorn d'execució per a JavaScript
 * [Express](https://expressjs.com) - Infrastructura d'aplicacions web amb utilitats HTTP i middleware
 * [Validator](https://www.npmjs.com/package/validator) - Llibreria de validació d'strings
 * [Body-parser](https://www.npmjs.com/package/body-parser) - Parser de sol·licitud d'entrades via middleware
