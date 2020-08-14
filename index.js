@@ -2,7 +2,7 @@
  * index.js
  */
 var app = require("./app");
-var port = 3001;
+var port = 3000;
 
 // Creació de servidor i escoltar peticions
 app.listen(port, () => {
