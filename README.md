@@ -130,7 +130,7 @@ Per desenvolupar aquesta API s'ha utilitzat:
 
 ## Llicència
 
-El contingut d'aquest repositori es pot utilitzar lliurament. Llicència [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ca).
+El contingut d'aquest repositori es pot utilitzar lliurament. Llicència [MIT](https://github.com/cristianpul/contrasenyes/blob/master/LICENSE).
 
 ## Agraïments
 
