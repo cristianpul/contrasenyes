@@ -1,4 +1,4 @@
-# Contrasenyador (Generador de contrasenyes)
+# Contrasenyador (generador de contrasenyes)
 
 Aquesta API permet **generar contrasenyes**, segons la llargada indicada i el paràmetres assignats. Existeix un contenidor de Docker disponible a [cristianpul/contrasenyes](https://hub.docker.com/r/cristianpul/contrasenyes).
 
