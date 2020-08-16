@@ -1,4 +1,4 @@
-# Contrasenyador (Generador de contrasenyes)
+# Contrasenyador (generador de contrasenyes)
 
 Aquesta API permet **generar contrasenyes**, segons la llargada indicada i el paràmetres assignats.
 
