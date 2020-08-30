@@ -73,8 +73,6 @@ input.mostra-contrasenya {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 1.4em;
   font-weight: 500;
-  color: #222
-  border: 1px solid black;
   border-radius: 0.2em;
   background-color: white;
   width: 15.1em;
@@ -98,11 +96,11 @@ input {
   padding: 0.5em;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   margin: 0 0.7em 0 2em;
 }
 
-input[type=checkbox]:checked {
+input[type="checkbox"]:checked {
   padding: 0px;
 }
 
