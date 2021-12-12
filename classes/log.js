@@ -41,7 +41,6 @@ function dataAvui() {
     d.getMonth() +
     con +
     d.getDate() +
-    con +
     ' ' +
     d.getHours() +
     punts +
