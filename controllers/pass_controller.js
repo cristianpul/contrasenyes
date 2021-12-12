@@ -74,6 +74,10 @@ var controller = {
       contrasenya: contrasenya.getContrasenya(llargada, parametres),
     });
   },
+  log: (req, res) => {
+    let logActual = log.mostraLog();
+    res.send(logActual);
+  },
 };
 
 module.exports = controller;
