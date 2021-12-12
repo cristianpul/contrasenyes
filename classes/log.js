@@ -29,13 +29,14 @@ let mostraLog = function () {
   let fd = obrirDoc('a+');
   appendInfo(fd, info);
 
-  let data = '<p>' + fs.readFileSync(doc, 'utf8') + '</p>';
+  let data = fs.readFileSync(doc, 'utf8');
 
-  let htmlInfo;
+  let htmlInfo = '<p>';
   let linies = data.split('\n');
   for (let linia = 0; linia < linies.length; linia++) {
     htmlInfo += linies[linia] + '<br/>';
   }
+  htmlInfo += '</p>';
 
   tancaDoc(fd);
   return htmlInfo;
